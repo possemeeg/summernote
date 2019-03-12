@@ -249,8 +249,6 @@ const TableResultAction = function(startPoint, where, action, domTable) {
       _actionCellList.push(getActionCell(cell, resultAction, rowPosition, colPosition));
       actualPosition++;
     }
-
-    return _actionCellList;
   };
 
   init();
