@@ -150,7 +150,7 @@ function debounce(func, wait, immediate) {
  * @return {Boolean}
  */
 function isValidUrl(url) {
-  const expression = /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
+  const expression = /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&/=]*)/gi;
   return expression.test(url);
 }
 
