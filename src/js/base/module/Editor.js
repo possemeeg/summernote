@@ -634,7 +634,7 @@ export default class Editor {
    * @return {Promise}
    */
   insertImage(src, param) {
-    return createImage(src, param).then(($image) => {
+    return createImage(src).then(($image) => {
       this.beforeCommand();
 
       if (typeof param === 'function') {
