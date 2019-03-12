@@ -224,18 +224,15 @@ const TableResultAction = function(startPoint, where, action, domTable) {
     const fixedCol = (where === TableResultAction.where.Column) ? _startPoint.colPos : -1;
 
     let actualPosition = 0;
-    let canContinue = true;
-    while (canContinue) {
+    while (true) {
       const rowPosition = (fixedRow >= 0) ? fixedRow : actualPosition;
       const colPosition = (fixedCol >= 0) ? fixedCol : actualPosition;
       const row = _virtualTable[rowPosition];
       if (!row) {
-        canContinue = false;
         return _actionCellList;
       }
       const cell = row[colPosition];
       if (!cell) {
-        canContinue = false;
         return _actionCellList;
       }
 
