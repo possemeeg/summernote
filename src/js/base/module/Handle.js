@@ -37,8 +37,8 @@ export default class Handle {
           '<div class="note-control-holder note-control-sw"></div>',
           '<div class="',
             (this.options.disableResizeImage ? 'note-control-holder' : 'note-control-sizing'),
-          ' note-control-se"></div>',
-          (this.options.disableResizeImage ? '' : '<div class="note-control-selection-info"></div>'),
+          ' note-control-se" style="z-index: 1"></div>',
+          (this.options.disableResizeImage ? '' : '<div class="note-control-selection-info" style="z-index: 2"></div>'),
         '</div>',
       '</div>',
     ].join('')).prependTo(this.$editingArea);
@@ -98,10 +98,11 @@ export default class Handle {
 
     if (isImage) {
       const $image = $(target);
-      const position = $image.position();
+      const offset = $image.offset();
+      const parentOffset = this.$editingArea.offset();
       const pos = {
-        left: position.left + parseInt($image.css('marginLeft'), 10),
-        top: position.top + parseInt($image.css('marginTop'), 10),
+        left: offset.left - parentOffset.left + parseInt($image.css('marginLeft'), 10),
+        top: offset.top - parentOffset.top + parseInt($image.css('marginTop'), 10),
       };
 
       // exclude margin
